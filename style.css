@@ -14,7 +14,7 @@ body {
     align-items: center;
 }
 
-/* 1. Title Animation */
+/* 1. Title Animation - Fixed Centering & Hover Pass-Through */
 .main-title {
     font-family: 'Montserrat', sans-serif;
     color: white;
@@ -22,17 +22,39 @@ body {
     z-index: 10; 
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); 
     font-size: 4rem;
     white-space: nowrap;
+    text-align: center;
+    padding: 10px 30px; 
+    border-radius: 4px;
     animation: moveToTop 2.5s forwards ease-in-out;
+    
+    /* FIX: Allows mouse to click/hover the sports windows behind the title */
+    pointer-events: none; 
 }
 
 @keyframes moveToTop {
-    0% { top: 50%; font-size: 4rem; opacity: 0; }
-    30% { opacity: 1; }
-    60% { top: 50%; font-size: 4rem; }
-    100% { top: 8%; font-size: 2.2rem; }
+    0% { 
+        top: 50%; 
+        font-size: 4rem; 
+        opacity: 0; 
+        background-color: transparent;
+    }
+    30% { 
+        opacity: 1; 
+    }
+    60% { 
+        top: 50%; 
+        font-size: 4rem; 
+        background-color: transparent;
+    }
+    100% { 
+        top: 3%; 
+        transform: translate(-50%, 0); 
+        font-size: 2.2rem; 
+        background-color: #010c18; 
+    }
 }
 
 /* 2. Selection Windows Container */
@@ -85,13 +107,19 @@ body {
     background-image: url('images/football-1.jpeg'); 
 }
 
+/* ADDED: Football Hover Effect */
+.football:hover::after {
+    background: rgba(46, 204, 113, 0.3); /* Green tint */
+}
+
 /* Cricket Styling */
 .cricket {
     background-image: url('images/cricket-1.jpeg');
 }
 
+/* Cricket Hover Effect */
 .cricket:hover::after {
-    background: rgba(241, 196, 15, 0.3); 
+    background: rgba(241, 196, 15, 0.3); /* Gold tint */
 }
 
 .sport-window:hover {
@@ -99,21 +127,27 @@ body {
     letter-spacing: 5px;
 }
 
-/* --- 4. MOBILE RESPONSIVENESS (Added) --- */
+/* --- 4. MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
     .selection-container {
-        flex-direction: column; /* Stacks Football on top of Cricket */
+        flex-direction: column; 
     }
 
     .main-title {
-        font-size: 2.5rem; /* Smaller title for mobile screens */
+        font-size: 2.5rem;
     }
 
     @keyframes moveToTop {
-        0% { top: 50%; font-size: 2.5rem; opacity: 0; }
+        0% { top: 50%; opacity: 0; background-color: transparent; }
         30% { opacity: 1; }
-        60% { top: 50%; font-size: 2.5rem; }
-        100% { top: 10%; font-size: 1.8rem; }
+        60% { top: 50%; background-color: transparent; }
+        100% { 
+            top: 2%; 
+            transform: translate(-50%, 0);
+            font-size: 1.6rem; 
+            background-color: #001f3f; 
+            padding: 8px 20px;
+        }
     }
 
     .sport-window {
