@@ -4,29 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Street Score</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Montserrat:wght@800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <h1 class="main-title">THE STREET SCORE</h1>
+    <header id="main-header" onclick="resetHome()">
+        <h1 id="main-title">THE STREET SCORE</h1>
+        <div id="sport-subtitle"></div>
+    </header>
 
-    <div class="selection-container" id="mainContainer">
-        <div class="sport-window football" id="footballSide" onclick="showFootballMenu()">
-            <div class="content-wrapper">
-                <span class="sport-label">FOOTBALL</span>
-                
-                <div class="sub-options" id="footballOptions">
-                    <a href="football-single.html" class="option-box">SINGLE MATCH</a>
-                    <a href="football-tournament.html" class="option-box">TOURNAMENT</a>
-                </div>
-            </div>
+    <div id="split-gate">
+        <div class="side football" id="side-fb" onclick="expandUniverse('football')">
+            <div class="side-bg" style="background-image: url('images/football-1.jpeg');"></div>
+            <div class="center-label">FOOTBALL</div>
         </div>
-
-        <div class="sport-window cricket" id="cricketSide">
-            <span class="sport-label">CRICKET</span>
+        
+        <div class="side cricket" id="side-cr" onclick="expandUniverse('cricket')">
+            <div class="side-bg" style="background-image: url('images/cricket-1.jpeg');"></div>
+            <div class="center-label">CRICKET</div>
         </div>
     </div>
+
+    <nav id="nav-football" class="action-menu">
+        <a href="football-career.html" class="action-card fb-theme">CAREER MATCH</a>
+        <a href="football-tournament.html" class="action-card fb-theme">TOURNAMENT</a>
+    </nav>
+
+    <nav id="nav-cricket" class="action-menu">
+        <a href="cricket-career.html" class="action-card cr-theme">CAREER MATCH</a>
+        <a href="cricket-tournament.html" class="action-card cr-theme">TOURNAMENT</a>
+    </nav>
 
     <script src="script.js"></script>
 </body>
