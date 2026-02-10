@@ -6,12 +6,12 @@ window.onload = () => {
     // 2. Delay, then Glide Title to Top.
     setTimeout(() => {
         header.classList.add('at-top');
-    }, 2000);
+    }, 700);
 
     // 3. Fade in the Universes only after title moves.
     setTimeout(() => {
         gate.style.opacity = "1";
-    }, 2800);
+    }, 800);
 };
 
 function expandUniverse(sport) {
