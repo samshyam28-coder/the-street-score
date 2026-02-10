@@ -103,12 +103,23 @@ body, html {
     left: 50%;
     transform: translate(-50%, -50%);
     font-weight: 900;
-    font-size: 2rem;
-    letter-spacing: 5px;
+    
+    /* THE RESPONSIVE FIX: */
+    /* This makes the text scale perfectly. It won't spill out on S23 Ultra. */
+    font-size: clamp(1rem, 7vw, 2.5rem); 
+    
+    /* Tighten spacing for narrow mobile screens */
+    letter-spacing: 1px; 
+    
     text-shadow: 0 0 15px rgba(255,255,255,0.5);
     z-index: 5;
     pointer-events: none;
     transition: opacity 0.3s ease;
+    
+    /* Keep text in one line and centered */
+    white-space: nowrap;
+    width: 90%; 
+    text-align: center;
 }
 
 /* --- DASHBOARD CARDS (CENTERED) --- */
